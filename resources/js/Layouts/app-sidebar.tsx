@@ -52,22 +52,22 @@ const data = {
     ],
     navMain: [
         {
-            title: "Playground",
+            title: "Menu E-Rekam Medis",
             url: "#",
             icon: SquareTerminal,
             isActive: true,
             items: [
                 {
-                    title: "History",
-                    url: "#",
+                    title: "Dashboard",
+                    url: "rme/",
                 },
                 {
-                    title: "Starred",
-                    url: "#",
+                    title: "Pendaftaran",
+                    url: "rme/pendaftaran",
                 },
                 {
-                    title: "Settings",
-                    url: "#",
+                    title: "Pengkajian Awal",
+                    url: "rme/pengkajian-awal",
                 },
             ],
         },

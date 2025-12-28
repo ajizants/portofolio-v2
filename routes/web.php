@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DashboardRMEController;
+use App\Http\Controllers\PendaftaranPasienController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -7,10 +9,10 @@ use Inertia\Inertia;
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
+        'canLogin'       => Route::has('login'),
+        'canRegister'    => Route::has('register'),
         'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
+        'phpVersion'     => PHP_VERSION,
     ]);
 });
 
@@ -24,4 +26,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+Route::prefix("rme")->group(function () {
+    Route::get('/', [DashboardRMEController::class, "index"])->name("rme.index");
+    Route::prefix("pendaftaran")->group(function () {
+        Route::get("/", [PendaftaranPasienController::class, "index"])->name("rme.pendaftaran.index");
+        Route::post("/", [PendaftaranPasienController::class, "store"])->name("rme.pendaftaran.store");
+        Route::get("/cetak", [PendaftaranPasienController::class, "cetak"])->name("rme.pendaftaran.cetak");
+        Route::get("/cetak/{id}", [PendaftaranPasienController::class, "cetak"])->name("rme.pendaftaran.cetak");
+        Route::get("/show/{id}", [PendaftaranPasienController::class, "show"])->name("rme.pendaftaran.show");
+    });
+});
+require __DIR__ . '/auth.php';

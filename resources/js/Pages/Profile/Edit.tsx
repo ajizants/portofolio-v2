@@ -29,19 +29,12 @@ export default function Edit({
                             className="max-w-xl"
                         />
                     </Card>
-                    <Card>
-                        <UpdateProfileInformationForm
-                            mustVerifyEmail={mustVerifyEmail}
-                            status={status}
-                            className="max-w-xl"
-                        />
-                    </Card>
 
                     <Card>
                         <UpdatePasswordForm className="max-w-xl" />
                     </Card>
 
-                    <Card>
+                    <Card className="dark:bg-zinc-600">
                         <DeleteUserForm className="max-w-xl" />
                     </Card>
                 </div>
