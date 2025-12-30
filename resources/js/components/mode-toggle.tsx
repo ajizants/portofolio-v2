@@ -17,7 +17,7 @@ export function ModeToggle() {
 
     return (
         <Button
-            className="border-0"
+            className="border-0 bg-transparent hover:bg-transparent focus:bg-transparent focus:outline-none"
             variant="outline"
             size="icon"
             onClick={changeTheme}

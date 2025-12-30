@@ -2,6 +2,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { PageProps } from "@/types";
 import { Head, Link } from "@inertiajs/react";
+import { MainNavigationMenu } from "./Topbar";
 
 export default function Welcome({
     auth,
@@ -45,6 +46,7 @@ export default function Welcome({
                                     />
                                 </svg>
                             </div>
+                            <MainNavigationMenu />
                             <nav className="-mx-3 flex flex-1 justify-end">
                                 <ModeToggle />
                                 {auth.user ? (
